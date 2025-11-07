@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranqr - Song Ranking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Ranqr</h1>
+            <p class="tagline">Rank your music collection through smart comparisons</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="rankings">Rankings</button>
+            <button class="tab-button" data-tab="compare">Compare</button>
+            <button class="tab-button" data-tab="triangles">Fix Triangles</button>
+            <button class="tab-button" data-tab="histogram">Histogram</button>
+        </nav>
+
+        <div class="tab-content" id="rankings-tab">
+            <h2>Current Rankings</h2>
+            <div id="stats" class="stats-bar"></div>
+            <div id="rankings-list" class="rankings-list"></div>
+        </div>
+
+        <div class="tab-content hidden" id="compare-tab">
+            <h2>Make a Comparison</h2>
+            <p>Which song do you prefer?</p>
+            <div id="comparison-area" class="comparison-area"></div>
+        </div>
+
+        <div class="tab-content hidden" id="triangles-tab">
+            <h2>Fix Triangular Inconsistencies</h2>
+            <p class="explanation">
+                Triangles occur when rankings form a cycle (e.g., A > B > C > A). 
+                These inconsistencies are prioritized by "dissonance" - the sum of the two largest score differences.
+            </p>
+            <div id="triangles-container" class="triangles-container"></div>
+        </div>
+
+        <div class="tab-content hidden" id="histogram-tab">
+            <h2>Score Distribution</h2>
+            <div class="histogram-controls">
+                <label>
+                    Histogram Type:
+                    <select id="histogram-type">
+                        <option value="scores">Score Distribution</option>
+                        <option value="comparisons">Comparison Count Distribution</option>
+                    </select>
+                </label>
+            </div>
+            <div id="histogram-container" class="histogram-container"></div>
+            <div id="histogram-stats" class="histogram-stats"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
